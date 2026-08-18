@@ -92,7 +92,7 @@ export async function handleRenewal(payload: KirvanoWebhookPayload): Promise<voi
     const creds = await getCredentials(subscriberId);
     await sendAccessEmail({
       to: email,
-      subject: 'Sua assinatura CineRush TV foi renovada ✅',
+      subject: 'Sua assinatura CineWorld foi renovada ✅',
       vars: {
         nome: (sub.nome as string | null) ?? 'cliente',
         usuario: creds.usuario,

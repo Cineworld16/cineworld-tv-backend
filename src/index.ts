@@ -28,7 +28,7 @@ app.disable('x-powered-by');
 app.set('trust proxy', 1);
 
 // Security headers centralizados: HSTS, X-Frame-Options DENY, X-Content-Type nosniff,
-// Referrer-Policy, Cross-Origin-Resource-Policy, etc. (mesma base do CineRush.)
+// Referrer-Policy, Cross-Origin-Resource-Policy, etc. (mesma base do CineWorld.)
 app.use(helmet());
 
 // Backstop de rate-limit nas rotas autenticadas: sem ele, um JWT forjado (formato
@@ -95,7 +95,7 @@ app.use(errorHandler);
 
 const port = env.PORT;
 app.listen(port, '0.0.0.0', () => {
-  logger.info({ port, env: env.NODE_ENV }, 'CineRush TV backend online');
+  logger.info({ port, env: env.NODE_ENV }, 'CineWorld backend online');
   void verifySmtp();
   startBrevoSyncLoop();
   startRetryLoop();

@@ -2,7 +2,7 @@
  * Conteúdo dos passos do onboarding por dispositivo.
  * VERSIONADO — o serviço lê daqui, nada de passo hard-coded na lógica.
  *
- * Baseado no roteiro real do suporte humano CineRush TV (2026-07-12).
+ * Baseado no roteiro real do suporte humano CineWorld (2026-07-12).
  * ⚠️ Samsung/LG, TV Box e Web ainda são rascunho (não vieram no roteiro) —
  * o Mateus refina. iOS e Android TV/FireStick são os passos reais.
  *
@@ -64,7 +64,7 @@ const preencherXtream: OnboardingStep = {
   key: 'preencher',
   text:
     `Agora é só preencher nessa sequência 👇\n\n` +
-    `⬜ *Nome:* CineRush (ou o que quiser)\n` +
+    `⬜ *Nome:* CineWorld (ou o que quiser)\n` +
     `👤 *Usuário:* o que te mandei aqui em cima\n` +
     `🔑 *Senha:* a que te mandei aqui em cima\n` +
     `🔗 *URL:* {{access_url}}`,

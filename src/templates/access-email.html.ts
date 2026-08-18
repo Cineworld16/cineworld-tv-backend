@@ -33,7 +33,7 @@ export function renderAccessEmailHtml(vars: EmailVars): string {
   // Caminho principal: só o botão de configurar (login/senha ficam no site de config).
   const configSection = `
               <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#d4d4d8;">
-                Seu acesso ao <strong>CINE RUSH TV</strong> está pronto! 🎉 É só clicar no botão abaixo pra configurar no seu aparelho — lá estão o seu login, a senha e o passo a passo, tudo em um lugar só.
+                Seu acesso ao <strong>CINEWORLD</strong> está pronto! 🎉 É só clicar no botão abaixo pra configurar no seu aparelho — lá estão o seu login, a senha e o passo a passo, tudo em um lugar só.
               </p>
               <div style="text-align:center;margin:8px 0 24px;">
                 <a href="${configUrl}" style="display:inline-block;background:linear-gradient(135deg,#a855f7,#ec4899);color:#ffffff;text-decoration:none;font-weight:700;padding:16px 32px;border-radius:10px;font-size:17px;">
@@ -45,7 +45,7 @@ export function renderAccessEmailHtml(vars: EmailVars): string {
   // Fallback: se não houver link de config, mostra as credenciais pra não deixar o cliente sem acesso.
   const credentialsSection = `
               <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#d4d4d8;">
-                Segue abaixo o seu acesso ao <strong>CINE RUSH TV</strong>:
+                Segue abaixo o seu acesso ao <strong>CINEWORLD</strong>:
               </p>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#1e1735;border:1px solid #2a2145;border-radius:12px;padding:20px;margin-bottom:24px;">
                 <tr>
@@ -81,7 +81,7 @@ export function renderAccessEmailHtml(vars: EmailVars): string {
         <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;background:#141024;border-radius:16px;padding:32px;">
           <tr>
             <td>
-              <div style="font-size:20px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent;">CINE RUSH TV</div>
+              <div style="font-size:20px;font-weight:800;letter-spacing:0.5px;background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent;">CINEWORLD</div>
             </td>
           </tr>
           <tr>
@@ -108,7 +108,7 @@ export function renderAccessEmailHtml(vars: EmailVars): string {
         </table>
 
         <div style="max-width:560px;padding:16px 8px;font-size:12px;color:#71717a;text-align:center;">
-          CINE RUSH TV · Você recebeu esse email porque comprou um acesso.
+          CINEWORLD · Você recebeu esse email porque comprou um acesso.
         </div>
       </td>
     </tr>

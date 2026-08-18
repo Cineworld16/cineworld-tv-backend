@@ -31,7 +31,7 @@ const schema = z.object({
     }, 'deve ser 32 bytes base64 (gere: node -e "console.log(require(\'crypto\').randomBytes(32).toString(\'base64\'))")'),
 
   BREVO_API_KEY: z.string().min(10),
-  SMTP_FROM_NAME: z.string().default('CineRush TV'),
+  SMTP_FROM_NAME: z.string().default('CineWorld'),
   SMTP_FROM_EMAIL: z.string().email(),
   REPLY_TO_EMAIL: z
     .string()

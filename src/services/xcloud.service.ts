@@ -10,7 +10,7 @@ import { detectDuration, type Duration } from '../lib/havok-plans.js';
  *
  *   - Só faz GET e POST. Não existe função de editar (PUT/PATCH) nem apagar (DELETE).
  *   - Toda chamada passa por `api()`, que bloqueia qualquer método fora de GET/POST.
- *   - Todo dispositivo criado leva `remark = CINERUSH:<id>` pra ser auditável e distinguível
+ *   - Todo dispositivo criado leva `remark = CINEWORLD:<id>` pra ser auditável e distinguível
  *     dos dele.
  *   - Nunca listamos a base dele (não há função de listagem geral).
  *

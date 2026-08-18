@@ -100,7 +100,7 @@ export function deviceListMessage(vars: WelcomeVars = {}): OutgoingMessage {
 
   const credsBlock =
     vars.usuario && vars.senha
-      ? `\n\nSeu acesso ao *CineRush TV*:\n👤 *Usuário:* ${vars.usuario}\n🔑 *Senha:* ${vars.senha}`
+      ? `\n\nSeu acesso ao *CineWorld*:\n👤 *Usuário:* ${vars.usuario}\n🔑 *Senha:* ${vars.senha}`
       : '';
 
   const rows = DEVICE_MENU.map((d) => ({

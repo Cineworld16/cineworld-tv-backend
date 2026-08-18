@@ -69,7 +69,7 @@ export async function sendAccessEmail(input: SendAccessEmailInput): Promise<Send
     sender: { name: env.SMTP_FROM_NAME, email: env.SMTP_FROM_EMAIL },
     to: [{ email: input.to, name: input.vars.nome }],
     replyTo: { email: env.REPLY_TO_EMAIL ?? env.SMTP_FROM_EMAIL },
-    subject: input.subject ?? 'Seu acesso CineRush TV está pronto',
+    subject: input.subject ?? 'Seu acesso CineWorld está pronto',
     htmlContent: html,
     textContent: text,
   };

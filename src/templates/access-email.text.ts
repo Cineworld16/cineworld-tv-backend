@@ -8,13 +8,13 @@ export function renderAccessEmailText(vars: EmailVars): string {
   // Caminho principal: só o link de configurar (login/senha ficam no site de config).
   // Fallback (sem configUrl): mostra as credenciais pra não deixar o cliente sem acesso.
   const accessSection = vars.configUrl
-    ? `Seu acesso ao CINE RUSH TV está pronto! 🎉
+    ? `Seu acesso ao CINEWORLD está pronto! 🎉
 
 É só abrir o link abaixo pra configurar no seu aparelho — lá estão o seu login, a senha e o passo a passo, tudo em um lugar só (leva uns 2 minutos):
 
 ⚙️ Configurar meu acesso:
 ${vars.configUrl}`
-    : `Segue abaixo o seu acesso ao CINE RUSH TV:
+    : `Segue abaixo o seu acesso ao CINEWORLD:
 
 🔗 URL: ${vars.accessUrl}
 👤 Usuário: ${vars.usuario}
