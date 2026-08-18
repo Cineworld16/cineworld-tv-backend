@@ -1,4 +1,4 @@
-import { supabaseAuth } from '../config/supabase.js';
+import { env } from '../config/env.js';
 
 interface CacheEntry {
   userId: string;
@@ -47,16 +47,28 @@ export async function verifyBearer(token: string): Promise<AuthedUser | null> {
     return { id: cached.userId, email: cached.email };
   }
 
-  const { data, error } = await supabaseAuth.auth.getUser(token);
-  if (error || !data.user) return null;
+  // Chamada REST direta (em vez do SDK supabase-js) — o SDK 2.45.x falha em
+  // validar tokens assinados com as chaves JWT assimetricas (ES256) que
+  // projetos Supabase novos usam por padrao, mesmo o endpoint REST aceitando
+  // o token normalmente.
+  let user: { id: string; email?: string } | null = null;
+  try {
+    const res = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
+      headers: { Authorization: `Bearer ${token}`, apikey: env.SUPABASE_ANON_KEY },
+    });
+    if (res.ok) user = (await res.json()) as { id: string; email?: string };
+  } catch {
+    return null;
+  }
+  if (!user) return null;
 
-  const email = data.user.email ?? '';
+  const email = user.email ?? '';
   cache.set(token, {
-    userId: data.user.id,
+    userId: user.id,
     email,
     cachedAt: Date.now(),
     jwtExp: decoded.exp,
   });
 
-  return { id: data.user.id, email };
+  return { id: user.id, email };
 }
