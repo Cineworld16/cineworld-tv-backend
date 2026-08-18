@@ -255,7 +255,8 @@ export async function createHavokCustomer(
             package_id: packageId,
             username: usuario,
             password: senha,
-            connections: 3,
+            // TIGER AGILE limita a 2 conexoes por plano (o Havok original permitia 3)
+            connections: 2,
             bouquets: '',
             parent_can_edit_personal_data: 'YES',
           }),
