@@ -46,9 +46,13 @@ function getPackages(): Record<Duration, Variants> {
   return merged;
 }
 
-// Detecta duração pelo texto da oferta/plano
+// Detecta duração pelo texto da oferta/plano. Remove acentos antes de comparar —
+// "1MÊS" (com circunflexo) nao batia com o "mes" sem acento do regex original.
 export function detectDuration(text: string): Duration | null {
-  const t = text.toLowerCase();
+  const t = text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(new RegExp('[̀-ͯ]', 'g'), '');
   if (/\banual\b|\bano\b|12\s*mes|1\s*ano/.test(t)) return 'anual';
   if (/\bsemestral\b|\b6\s*mes|semestre/.test(t)) return 'semestral';
   if (/\btrimestral\b|\b3\s*mes|trimestre/.test(t)) return 'trimestral';
