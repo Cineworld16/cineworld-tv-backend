@@ -104,9 +104,14 @@ async function startSession(): Promise<Session> {
     const proxy = buildProxy();
     if (proxy) logger.info({ server: proxy.server }, 'sessao Havok via proxy');
     browser = await chromium.launch({
-      headless: true,
+      // headless:true faz o Playwright usar o binario separado "chrome-headless-shell",
+      // que trava com SIGTRAP no sandbox do Railway (gVisor). headless:false + o proprio
+      // flag --headless=new do Chromium usa o Chrome completo em modo headless, que roda
+      // sem crashar no mesmo ambiente.
+      headless: false,
       proxy, // undefined = sem proxy (nada muda)
       args: [
+        '--headless=new',
         '--no-sandbox',
         '--disable-dev-shm-usage',
         '--disable-blink-features=AutomationControlled',
