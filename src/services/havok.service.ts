@@ -178,11 +178,20 @@ async function startSession(): Promise<Session> {
       throw new Error('formulario de login Havok nao apareceu (Cloudflare/timeout)');
     }
 
-    const userInput = page
+        const userInput = page
       .locator('input[type="text"], input[type="email"], input[name="username"]')
       .first();
     await userInput.fill(env.HAVOK_USER);
     await passInput.fill(env.HAVOK_PASS);
+
+    // Marca a checkbox "não sou um robô" se existir no formulário — sem isso o
+    // backend recusa o login mesmo com usuário/senha corretos.
+    try {
+      await page.locator('input[type="checkbox"]').first().check({ timeout: 3000 });
+    } catch {
+      // sem checkbox visível — segue o fluxo normal
+    }
+
     try {
       await page.locator('button[type="submit"]').first().click({ timeout: 5000 });
     } catch {
